@@ -31,9 +31,11 @@ exports.getStudentData = async (req, res, next) => {
         email: result.email,
         courses: result.courses,
         date:
-          monthNames[new Date(result.createdAt).getMonth()] +
+          new Date(result.updatedAt).getDate() +
           " " +
-          new Date(result.createdAt).getFullYear(),
+          monthNames[new Date(result.updatedAt).getMonth()] +
+          " " +
+          new Date(result.updatedAt).getFullYear(),
       };
     });
   } catch (error) {
