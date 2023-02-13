@@ -31,6 +31,8 @@ exports.getStudentData = async (req, res, next) => {
         email: result.email,
         courses: result.courses,
         date:
+          new Date(result.createdAt).getDate() +
+          " " +
           monthNames[new Date(result.createdAt).getMonth()] +
           " " +
           new Date(result.createdAt).getFullYear(),
