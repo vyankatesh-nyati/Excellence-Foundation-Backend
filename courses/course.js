@@ -380,7 +380,7 @@ exports.c1 = [
     title: "Finishing Work Part 2",
     video: "https://vimeo.com/798142075",
     pdf: "/uploads/Session-23.pdf",
-    nextId: "s10",
+    // nextId: "s10",
     prevId: "s8",
   },
 ];
