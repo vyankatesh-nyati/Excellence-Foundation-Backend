@@ -79,11 +79,11 @@ exports.login = (req, res, next) => {
         data: loadedUser
       });
     })
-    .catch((err) => {
-      if (!err.statusCode) {
-        err.statusCode = 500;
+    .catch((error) => {
+      if (!error.statusCode) {
+        error.statusCode = 500;
       }
-      next(err);
+      next(error);
     });
 };
 
