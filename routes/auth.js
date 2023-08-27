@@ -4,6 +4,7 @@ const { body } = require("express-validator");
 const User = require("../models/user");
 
 const isAdmin = require("../middleware/is-admin");
+const isAuth = require("../middleware/is-auth");
 
 const authController = require("../controllers/auth");
 
@@ -91,5 +92,7 @@ router.post(
 
 // GET /auth/getData/:userId
 router.get("/getData/:userId", isAdmin, authController.getDetails);
+
+router.post("/token-validate", isAuth, authController.validateToken);
 
 module.exports = router;

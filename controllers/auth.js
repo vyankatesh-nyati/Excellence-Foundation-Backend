@@ -188,3 +188,23 @@ exports.getDetails = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.validateToken = async (req, res, next) => {
+  const userId = req.userId;
+  const loadedUser = await User.findById(userId);
+  if (!loadedUser) {
+    const err = new Error("No user found!!!");
+    err.statusCode = 500;
+    throw err;
+  }
+  let userCourses = [];
+  courses.forEach((result) => {
+    if (loadedUser.courses.includes(result.id)) {
+      userCourses.push(result);
+    }
+  });
+  res.status(200).json({
+    data: loadedUser,
+    courses: userCourses,
+  });
+};
