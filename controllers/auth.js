@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
+const { courses } = require("../courses/course");
 
 exports.signup = (req, res, next) => {
   const errors = validationResult(req);
@@ -73,10 +74,17 @@ exports.login = (req, res, next) => {
         process.env.USER_SECRET
         // { expiresIn: "1h" }
       );
+      let userCourses = [];
+      courses.forEach((result) => {
+        if (loadedUser.courses.includes(result.id)) {
+          userCourses.push(result);
+        }
+      });
       res.status(200).json({
         token: token,
         userId: loadedUser._id.toString(),
         data: loadedUser,
+        courses: userCourses,
       });
     })
     .catch((error) => {
