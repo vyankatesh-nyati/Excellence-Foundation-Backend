@@ -7,7 +7,7 @@ const router = express.Router();
 
 // GET /session/:course/:sessionId
 router.get(
-  "/:course/:sessionId",
+  "/:courseId/:sessionId",
   isAuth,
   sessionDetailsController.getSessionDetails
 );
