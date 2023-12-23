@@ -48,7 +48,8 @@ mongoose
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.enwflqw.mongodb.net/${process.env.MONGO_DATABASE}`
   )
   .then((result) => {
-    app.listen(process.env.PORT || 8080);
+    app.listen(process.env.PORT || 5000);
+    console.log("App started successfully on port 5000");
   })
   .catch((err) => {
     const error = new Error("Problem with mongodb database connection");
