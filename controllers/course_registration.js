@@ -75,7 +75,7 @@ exports.studentSignup = async (req, res, next) => {
     const response = await student.save();
 
     if (!response) {
-      throw new Error("Something went wrong !!!");
+      throw new Error("Something went wrong. Please try again later !!!");
     }
 
     const razorpayInstance = new Razorpay({
@@ -93,7 +93,7 @@ exports.studentSignup = async (req, res, next) => {
       },
       (err, data) => {
         if (err) {
-          const error = new Error("Something went wrong!!!");
+          const error = new Error("Something went wrong. Please try again later !!!");
           error.data = err.error.description;
           error.statusCode = err.statusCode;
           throw error;
