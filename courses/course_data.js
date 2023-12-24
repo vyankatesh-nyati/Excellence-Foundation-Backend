@@ -1,5 +1,5 @@
 // fees should if in the lowest possible value (for 200 rs 20000)
-export const CourseData = [
+exports.CourseData = [
   {
     id: "c1",
     title: "Construction Skill Development Internship Training",

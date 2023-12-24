@@ -31,8 +31,8 @@ const studentSchema = new Schema(
     course: {
       type: String,
       required: true,
-      batch: {
     },
+    batch: {
       type: String,
       required: true,
     },
@@ -46,19 +46,15 @@ const studentSchema = new Schema(
     },
     orderId: {
       type: String,
-      required: true,
     },
     paymentId: {
       type: String,
-      required: true,
     },
     razorpayOrderId: {
       type: String,
-      required: true,
     },
     razorpaySignature: {
       type: String,
-      required: true,
     },
     status: {
       type: String,

@@ -9,6 +9,7 @@ const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin");
 const sessionRoutes = require("./routes/sessionDetails");
 const dataRoutes = require("./routes/data");
+const courseRegistrationRoutes = require("./routes/course_registration");
 
 const compression = require("compression");
 
@@ -34,6 +35,7 @@ app.use("/auth", authRoutes);
 app.use("/admin", adminRoutes);
 app.use("/session", sessionRoutes);
 app.use("/data", dataRoutes);
+app.use("/course-registration", courseRegistrationRoutes);
 
 app.use((error, req, res, next) => {
   console.log(error);
