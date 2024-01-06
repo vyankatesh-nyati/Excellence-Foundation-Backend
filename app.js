@@ -9,6 +9,7 @@ const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin");
 const sessionRoutes = require("./routes/sessionDetails");
 const dataRoutes = require("./routes/data");
+const courseRegistrationRoutes = require("./routes/course_registration");
 
 const compression = require("compression");
 
@@ -34,6 +35,7 @@ app.use("/auth", authRoutes);
 app.use("/admin", adminRoutes);
 app.use("/session", sessionRoutes);
 app.use("/data", dataRoutes);
+app.use("/course-registration", courseRegistrationRoutes);
 
 app.use((error, req, res, next) => {
   console.log(error);
@@ -48,7 +50,8 @@ mongoose
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.enwflqw.mongodb.net/${process.env.MONGO_DATABASE}`
   )
   .then((result) => {
-    app.listen(process.env.PORT || 8080);
+    app.listen(process.env.PORT || 5000);
+    console.log("App started successfully on port 5000");
   })
   .catch((err) => {
     const error = new Error("Problem with mongodb database connection");
