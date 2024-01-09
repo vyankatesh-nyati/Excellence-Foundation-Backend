@@ -47,11 +47,18 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.enwflqw.mongodb.net/${process.env.MONGO_DATABASE}`
+    // `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.enwflqw.mongodb.net/${process.env.MONGO_DATABASE}`
+    `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@mongodb-ef:27017`,
+    // "mongodb://admin-vyankatesh:Vyankatesh1405@mongodb-ef:27017",
+    {
+      dbName: process.env.MONGO_DATABASE,
+    }
   )
   .then((result) => {
-    app.listen(process.env.PORT || 5000);
-    console.log("App started successfully on port 5000");
+    console.log(result);
+    app.listen(process.env.PORT || 8080);
+    // console.log("App started successfully on port 5000");
+    console.log("app running on port 8080");
   })
   .catch((err) => {
     const error = new Error("Problem with mongodb database connection");
